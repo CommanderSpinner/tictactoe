@@ -28,7 +28,7 @@ class GamePanel extends JPanel implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         for (int i = 0; i < fields.length; i++) {
             if (e.getSource() == fields[i]) {
-                System.out.println("Field " + (i + 1) + " was pressed!");
+                System.out.println("Field " + (i) + " was clicked!");
                 // Perform specific actions for each button
                 switch (i) {
                     case 0:
