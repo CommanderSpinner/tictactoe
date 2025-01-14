@@ -1,12 +1,18 @@
 package org.gui;
 
+import org.player.Player;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class Gui extends JFrame implements ActionListener {
+class Gui extends JFrame implements ActionListener {
+    Player[] p = new Player[2];
     public Gui(){
-        this.add(new GamePanel());
+        p[0] = new Player('x');
+        p[1] = new Player('o');
+
+        this.add(new GamePanel(p));
 
         this.setTitle("Tic Tac Toe");
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
