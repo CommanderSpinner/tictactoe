@@ -8,9 +8,11 @@ import java.awt.event.ActionListener;
 
 class Gui extends JFrame implements ActionListener {
     Player[] p = new Player[2];
+    JMenuBar bar = new Bar();
     public Gui(){
         p[0] = new Player('x', true);
         p[1] = new Player('o', false);
+        this.setJMenuBar(bar);;
 
         this.add(new GamePanel(p));
 
