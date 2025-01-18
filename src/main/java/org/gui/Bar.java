@@ -1,6 +1,7 @@
 package org.gui;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -8,10 +9,12 @@ import java.util.ArrayList;
 public class Bar extends JMenuBar implements ActionListener {
     JMenu menu;
     JMenuItem[] menuItems;
-    ArrayList<JPanel> panels;
+    JPanel cardPanel;
+    CardLayout cardLayout;
 
-    public Bar(ArrayList<JPanel> panels) {
-        this.panels = panels;
+    public Bar(JPanel cardPanel, CardLayout cardLayout) {
+        this.cardPanel = cardPanel;
+        this.cardLayout = cardLayout;
         menu = new JMenu("panels");
         menuItems = new JMenuItem[2];
 
@@ -29,14 +32,12 @@ public class Bar extends JMenuBar implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (e.getSource() == menuItems[0]) {
-            System.out.println("Game menu clicked");
-            panels.get(1).setVisible(false);
-            panels.getFirst().setVisible(true);
+        if (e.getSource() == menuItems[0]){
+            cardLayout.show(cardPanel, "GamePanel");
+            System.out.println("game panel");
         } else if (e.getSource() == menuItems[1]) {
-            System.out.println("Stats menu clicked");
-            panels.get(1).setVisible(true);
-            panels.getFirst().setVisible(false);
+            cardLayout.show(cardPanel, "DisplayPanel");
+            System.out.println("display panel");
         }
     }
 }
