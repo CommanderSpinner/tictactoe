@@ -1,6 +1,8 @@
 package org.gui;
 
-public class DisplayPanel {
+import javax.swing.*;
+
+public class DisplayPanel extends JPanel {
     public DisplayPanel(){
 
     }
