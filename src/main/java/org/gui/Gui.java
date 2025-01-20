@@ -9,11 +9,11 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 class Gui extends JFrame implements ActionListener {
-    Player[] players;
-    JMenuBar bar;
-    JPanel cardPanel; // The container managed by CardLayout
-    CardLayout cardLayout; // CardLayout instance
-    ArrayList<JPanel> panels;
+    private Player[] players;
+    private JMenuBar bar;
+    private JPanel cardPanel; // The container managed by CardLayout
+    private CardLayout cardLayout; // CardLayout instance
+    private ArrayList<JPanel> panels;
 
     public Gui() {
         panels = new ArrayList<>();

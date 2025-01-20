@@ -8,8 +8,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 class GamePanel extends JPanel implements ActionListener {
-    JButton[] fields;
-    Player[] p;
+    private JButton[] fields;
+    private Player[] p;
     public GamePanel(Player[] p){
         fields = new JButton[9];
 

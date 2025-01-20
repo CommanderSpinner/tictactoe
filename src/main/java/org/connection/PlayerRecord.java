@@ -3,10 +3,10 @@ package org.connection;
 import org.player.Player;
 
 public class PlayerRecord {
-    char symbol;
-    int score;
-    Conn c;
-    Player p;
+    private char symbol;
+    private int score;
+    private Conn c;
+    private Player p;
 
     public void synchDB(){
     }

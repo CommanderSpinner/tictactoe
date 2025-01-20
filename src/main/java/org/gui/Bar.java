@@ -7,10 +7,10 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 public class Bar extends JMenuBar implements ActionListener {
-    JMenu menu;
-    JMenuItem[] menuItems;
-    JPanel cardPanel;
-    CardLayout cardLayout;
+    private JMenu menu;
+    private JMenuItem[] menuItems;
+    private JPanel cardPanel;
+    private CardLayout cardLayout;
 
     public Bar(JPanel cardPanel, CardLayout cardLayout) {
         this.cardPanel = cardPanel;
