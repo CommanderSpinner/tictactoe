@@ -7,12 +7,12 @@ import java.sql.Statement;
 
 public class Conn {
     private final String url;
-    Connection c;
+    private Connection c;
 
     public Conn() throws SQLException {
         url = "jdbc:sqlite:game.db";
 
-        c = DriverManager.getConnection(url)
+        c = DriverManager.getConnection(url);
         if (c != null) {
             System.out.println("Connection to SQLite has been established.");
         } else {
@@ -20,4 +20,8 @@ public class Conn {
         }
     }
 
+    public void closeConn() throws SQLException {
+        c.close();
+        System.out.println("Connetion closed");
+    }
 }

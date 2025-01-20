@@ -8,6 +8,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 class Gui extends JFrame implements ActionListener {
@@ -20,7 +21,7 @@ class Gui extends JFrame implements ActionListener {
 
     Conn c;
 
-    public Gui() {
+    public Gui() throws SQLException {
         c = new Conn();
 
         panels = new ArrayList<>();
@@ -52,6 +53,17 @@ class Gui extends JFrame implements ActionListener {
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setSize(400, 400);
         this.setVisible(true);
+
+        // close conn on shutdown
+        Runtime.getRuntime().addShutdownHook(new Thread(() -> {
+            try {
+                if (c != null) {
+                    c.closeConn();
+                }
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+        }));
     }
 
     @Override
