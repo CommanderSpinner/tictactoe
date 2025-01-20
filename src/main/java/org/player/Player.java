@@ -1,9 +1,13 @@
 package org.player;
 
+import org.connection.Conn;
+import org.connection.PlayerRecord;
+
 public class Player {
     char symbol;
     static char fields[];
     boolean turn = false;
+
     public Player(char symbol, boolean turn){
         this.symbol = symbol;
         this.turn = turn;

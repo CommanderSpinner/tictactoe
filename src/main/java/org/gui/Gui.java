@@ -1,5 +1,7 @@
 package org.gui;
 
+import org.connection.Conn;
+import org.connection.PlayerRecord;
 import org.player.Player;
 
 import javax.swing.*;
@@ -9,13 +11,18 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 class Gui extends JFrame implements ActionListener {
-    private Player[] players;
     private JMenuBar bar;
     private JPanel cardPanel; // The container managed by CardLayout
     private CardLayout cardLayout; // CardLayout instance
     private ArrayList<JPanel> panels;
 
+    private Player[] players;
+
+    Conn c;
+
     public Gui() {
+        c = new Conn();
+
         panels = new ArrayList<>();
         panels.add(new GamePanel(players));
         panels.add(new DisplayPanel());
@@ -49,7 +56,5 @@ class Gui extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        // Example: Switch to DisplayPanel when an action is triggered
-        cardLayout.show(cardPanel, "DisplayPanel");
     }
 }
