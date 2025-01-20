@@ -7,16 +7,16 @@ import java.sql.Statement;
 
 public class Conn {
     private final String url;
+    Connection c;
 
-    public Conn(){
+    public Conn() throws SQLException {
         url = "jdbc:sqlite:game.db";
 
-        try (Connection conn = DriverManager.getConnection(url)) {
-            if (conn != null) {
-                System.out.println("Connection to SQLite has been established.");
-            }
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
+        c = DriverManager.getConnection(url)
+        if (c != null) {
+            System.out.println("Connection to SQLite has been established.");
+        } else {
+            System.out.println("Connection failure");
         }
     }
 
