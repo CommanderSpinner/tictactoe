@@ -7,6 +7,7 @@ public class Player {
     char symbol;
     static char fields[];
     boolean turn = false;
+    int score;
 
     public Player(char symbol, boolean turn){
         this.symbol = symbol;
@@ -20,8 +21,21 @@ public class Player {
         }
     }
 
+    public void setScore(int score){
+        this.score = score;
+    }
+
+    public int getScore(){
+        return score;
+    }
+
     public char getSymbol(){
         return symbol;
+    }
+
+    public boolean checkWinner(){
+
+        return false;
     }
 
     static private boolean checkField(int field){

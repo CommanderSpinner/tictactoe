@@ -1,9 +1,8 @@
 package org.connection;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
+
+import org.player.Player;
 
 public class Conn {
     private final String url;
@@ -20,8 +19,24 @@ public class Conn {
         }
     }
 
+    public void synchDB(Player p) throws SQLException {
+        Statement s = c.createStatement();
+        s.executeUpdate("INSET INTO player (score) VALUES (" + p.getScore() + ") WHERE symbol = " + p.getSymbol());
+    }
+
+    public void readDB(Player p) throws SQLException {
+        Statement s = c.createStatement();
+        ResultSet rs = s.executeQuery("SELECT * FROM player WHERE symbol = " + p.getSymbol());
+        
+        while (rs.next()) {
+            p.setScore(rs.getInt("score"));
+        }
+
+        System.out.println(p.getSymbol() + ": " + p.getScore());
+    }
+
     public void closeConn() throws SQLException {
         c.close();
-        System.out.println("Connetion closed");
+        System.out.println("Connection closed");
     }
 }

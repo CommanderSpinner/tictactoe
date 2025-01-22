@@ -7,6 +7,8 @@ public class PlayerRecord {
     private int score;
     private Conn c;
 
+    public void get
+
     public void synchDB(){
     }
 
