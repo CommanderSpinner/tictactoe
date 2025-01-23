@@ -21,7 +21,7 @@ public class Conn {
 
     public void synchDB(Player p) throws SQLException {
         Statement s = c.createStatement();
-        s.executeUpdate("INSET INTO player (score) VALUES (" + p.getScore() + ") WHERE symbol = " + p.getSymbol());
+        s.executeUpdate("INSERT INTO player (score) VALUES (" + p.getScore() + ") WHERE symbol = " + p.getSymbol());
     }
 
     public void readDB(Player p) throws SQLException {
