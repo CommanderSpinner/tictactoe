@@ -11,7 +11,7 @@ import java.awt.event.ActionListener;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-class Gui extends JFrame implements ActionListener {
+class Gui extends JFrame {
     private JMenuBar bar;
     private JPanel cardPanel; // The container managed by CardLayout
     private CardLayout cardLayout; // CardLayout instance
@@ -64,9 +64,5 @@ class Gui extends JFrame implements ActionListener {
                 ex.printStackTrace();
             }
         }));
-    }
-
-    @Override
-    public void actionPerformed(ActionEvent e) {
     }
 }

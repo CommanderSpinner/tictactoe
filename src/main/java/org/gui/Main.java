@@ -1,6 +1,5 @@
 package org.gui;
 
-import javax.swing.*;
 import java.sql.SQLException;
 
 public class Main {

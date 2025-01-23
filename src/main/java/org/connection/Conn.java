@@ -27,7 +27,7 @@ public class Conn {
     public void readDB(Player p) throws SQLException {
         Statement s = c.createStatement();
         ResultSet rs = s.executeQuery("SELECT * FROM player WHERE symbol = " + p.getSymbol());
-        
+
         while (rs.next()) {
             p.setScore(rs.getInt("score"));
         }
