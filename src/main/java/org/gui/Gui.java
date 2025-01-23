@@ -24,9 +24,11 @@ class Gui extends JFrame {
     public Gui() throws SQLException {
         c = new Conn();
 
-        this.addPanels();
-
         players = new Player[2];
+        players[0] = new Player('x', true);
+        players[1] = new Player('o', false);
+
+        this.addPanels();
 
         this.makeCardPanel();
 
@@ -35,9 +37,9 @@ class Gui extends JFrame {
         this.shutdownHook();
     }
 
-    private void addPanels(){
+    private void addPanels() throws SQLException {
         panels = new ArrayList<>();
-        panels.add(new GamePanel(players));
+        panels.add(new GamePanel(players, c));
         panels.add(new DisplayPanel());
     }
 
@@ -45,9 +47,6 @@ class Gui extends JFrame {
         cardLayout = new CardLayout(); // Initialize CardLayout
         cardPanel = new JPanel(cardLayout); // Assign CardLayout to JPanel
         bar = new Bar(cardPanel, cardLayout);
-
-        players[0] = new Player('x', true);
-        players[1] = new Player('o', false);
 
         this.setJMenuBar(bar);
 
