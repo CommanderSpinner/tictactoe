@@ -19,7 +19,7 @@ class Gui extends JFrame {
 
     private Player[] players;
 
-    Conn c;
+    private Conn c;
 
     public Gui() throws SQLException {
         c = new Conn();
