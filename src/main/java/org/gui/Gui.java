@@ -24,11 +24,24 @@ class Gui extends JFrame {
     public Gui() throws SQLException {
         c = new Conn();
 
+        this.addPanels();
+
+        players = new Player[2];
+
+        this.makeCardPanel();
+
+        this.initFrame();
+
+        this.shutdownHook();
+    }
+
+    private void addPanels(){
         panels = new ArrayList<>();
         panels.add(new GamePanel(players));
         panels.add(new DisplayPanel());
+    }
 
-        players = new Player[2];
+    private void makeCardPanel(){
         cardLayout = new CardLayout(); // Initialize CardLayout
         cardPanel = new JPanel(cardLayout); // Assign CardLayout to JPanel
         bar = new Bar(cardPanel, cardLayout);
@@ -47,13 +60,17 @@ class Gui extends JFrame {
 
         // Set the initial panel
         cardLayout.show(cardPanel, "GamePanel");
+    }
 
+    private void initFrame(){
         // JFrame settings
         this.setTitle("Tic Tac Toe");
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setSize(400, 400);
         this.setVisible(true);
+    }
 
+    private void shutdownHook(){
         // close conn on shutdown
         Runtime.getRuntime().addShutdownHook(new Thread(() -> {
             try {
