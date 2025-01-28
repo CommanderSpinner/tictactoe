@@ -1,5 +1,6 @@
 package org.connection;
 
+import java.io.File;
 import java.sql.*;
 
 import org.player.Player;
@@ -14,6 +15,7 @@ public class Conn {
         c = DriverManager.getConnection(url);
         if (c != null) {
             System.out.println("Connection to SQLite has been established.");
+            System.out.println(new File("game.db").getAbsolutePath());
         } else {
             System.out.println("Connection failure");
         }
