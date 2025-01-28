@@ -13,8 +13,10 @@ public class Conn {
         url = "jdbc:sqlite:game.db";
 
         c = DriverManager.getConnection(url);
+
         if (c != null) {
             System.out.println("Connection to SQLite has been established.");
+            printTables();
             System.out.println(new File("game.db").getAbsolutePath());
         } else {
             System.out.println("Connection failure");
@@ -40,5 +42,18 @@ public class Conn {
     public void closeConn() throws SQLException {
         c.close();
         System.out.println("Connection closed");
+    }
+
+    private void printTables() throws SQLException {
+        String query = "SELECT name FROM sqlite_master WHERE type='table' AND name NOT LIKE 'sqlite_%';";
+
+        Statement stmt = c.createStatement();
+        ResultSet rs = stmt.executeQuery(query);
+
+        System.out.println("List of tables in the database:");
+
+        while (rs.next()) {
+            System.out.println(rs.getString("name"));
+        }
     }
 }
