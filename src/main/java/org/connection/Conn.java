@@ -53,7 +53,7 @@ public class Conn {
         System.out.println("database:");
 
         while (rs.next()) {
-            System.out.println(rs.getString("name"));
+            System.out.println(rs.getString("symbol") + "|" + rs.getInt("score"));
         }
     }
 }
