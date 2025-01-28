@@ -16,7 +16,7 @@ public class Conn {
 
         if (c != null) {
             System.out.println("Connection to SQLite has been established.");
-            printTables();
+            printTable();
             System.out.println(new File("game.db").getAbsolutePath());
         } else {
             System.out.println("Connection failure");
@@ -44,13 +44,13 @@ public class Conn {
         System.out.println("Connection closed");
     }
 
-    private void printTables() throws SQLException {
-        String query = "SELECT name FROM sqlite_master WHERE type='table' AND name NOT LIKE 'sqlite_%';";
+    private void printTable() throws SQLException {
+        String query = "SELECT * FROM player";
 
         Statement stmt = c.createStatement();
         ResultSet rs = stmt.executeQuery(query);
 
-        System.out.println("List of tables in the database:");
+        System.out.println("database:");
 
         while (rs.next()) {
             System.out.println(rs.getString("name"));
