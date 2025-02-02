@@ -7,7 +7,7 @@ import org.player.Player;
 
 public class Conn {
     private final String url;
-    private Connection c;
+    private final Connection c;
 
     public Conn() throws SQLException {
         url = "jdbc:sqlite:game.db";
@@ -25,12 +25,13 @@ public class Conn {
 
     public void synchDB(Player p) throws SQLException {
         Statement s = c.createStatement();
-        s.executeUpdate("INSERT INTO player (score) VALUES (" + p.getScore() + ") WHERE symbol = " + p.getSymbol());
+        s.executeUpdate("INSERT INTO player (score) VALUES (" + p.getScore() + ") WHERE symbol = '" + p.getSymbol() + "'");
     }
 
     public void readDB(Player p) throws SQLException {
         Statement s = c.createStatement();
-        ResultSet rs = s.executeQuery("SELECT * FROM player WHERE symbol = " + p.getSymbol());
+        ResultSet rs = s.executeQuery("SELECT * FROM player WHERE symbol = '" + p.getSymbol() + "'");
+
 
         while (rs.next()) {
             p.setScore(rs.getInt("score"));
