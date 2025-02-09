@@ -74,6 +74,8 @@ class Gui extends JFrame {
         Runtime.getRuntime().addShutdownHook(new Thread(() -> {
             try {
                 if (c != null) {
+                    c.synchDB(players[0]);
+                    c.synchDB(players[1]);
                     c.closeConn();
                 }
             } catch (SQLException ex) {
