@@ -37,7 +37,7 @@ class Gui extends JFrame {
     private void addPanels() throws SQLException {
         panels = new ArrayList<>();
         panels.add(new GamePanel(players, c));
-        panels.add(new DisplayPanel());
+        panels.add(new DisplayPanel(players));
     }
 
     private void makeCardPanel(){
