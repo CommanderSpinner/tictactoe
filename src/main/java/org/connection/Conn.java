@@ -12,11 +12,13 @@ public class Conn {
     public Conn() throws SQLException {
         url = "jdbc:sqlite:game.db";
 
+        /*
         try {
             Class.forName("org.sqlite.JDBC");
         } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
+        */
 
         c = DriverManager.getConnection(url);
 
