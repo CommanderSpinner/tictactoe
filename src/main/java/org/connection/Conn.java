@@ -23,16 +23,14 @@ public class Conn {
         }
     }
 
-    public void synchDB(Player p) throws SQLException {
+    public void syncDB(Player p) throws SQLException {
         Statement s = c.createStatement();
         s.executeUpdate("UPDATE player SET score = " + p.getScore() + " WHERE symbol = '" + p.getSymbol() + "'");
-
     }
 
     public void readDB(Player p) throws SQLException {
         Statement s = c.createStatement();
         ResultSet rs = s.executeQuery("SELECT * FROM player WHERE symbol = '" + p.getSymbol() + "'");
-
 
         while (rs.next()) {
             p.setScore(rs.getInt("score"));

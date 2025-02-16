@@ -1,13 +1,10 @@
 package org.gui;
 
 import org.connection.Conn;
-import org.connection.PlayerRecord;
 import org.player.Player;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
@@ -75,8 +72,8 @@ class Gui extends JFrame {
             try {
                 if (c != null) {
                     System.out.println("Closing Connention");
-                    c.synchDB(players[0]);
-                    c.synchDB(players[1]);
+                    c.syncDB(players[0]);
+                    c.syncDB(players[1]);
                     c.closeConn();
                 }
             } catch (SQLException ex) {
