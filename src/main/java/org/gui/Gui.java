@@ -74,6 +74,7 @@ class Gui extends JFrame {
         Runtime.getRuntime().addShutdownHook(new Thread(() -> {
             try {
                 if (c != null) {
+                    System.out.println("Closing Connention");
                     c.synchDB(players[0]);
                     c.synchDB(players[1]);
                     c.closeConn();
