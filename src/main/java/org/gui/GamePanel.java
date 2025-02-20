@@ -1,6 +1,7 @@
 package org.gui;
 
 import org.connection.Conn;
+import org.player.Game;
 import org.player.Player;
 
 import javax.swing.*;
@@ -34,6 +35,16 @@ class GamePanel extends JPanel implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         for (int i = 0; i < fields.length; i++) {
             if (e.getSource() == fields[i]) {
+                int playerNum = -1;
+
+                // check which player should get checked
+                if(p[0].getTurn()){
+                    playerNum = 0;
+                } else {
+                    playerNum = 1;
+                }
+
+                Game g = new Game(p[playerNum], fields, i);
                 System.out.println("Field " + (i) + " was clicked!");
                 // Perform specific actions for each button
                 switch (i) {
