@@ -14,7 +14,12 @@ public class Game {
     }
 
     public boolean setField(){
-        
+
+        if (fields[fieldNumber].getText().equals("")) {
+            fields[fieldNumber].setText(p.getSymbol() + "");
+            return true;
+        }
+
         return false;
     }
 }
