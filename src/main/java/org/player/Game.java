@@ -12,4 +12,9 @@ public class Game {
         this.p = p;
         this.fields = fields;
     }
+
+    public boolean setField(){
+        
+        return false;
+    }
 }
