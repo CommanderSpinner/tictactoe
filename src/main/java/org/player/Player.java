@@ -45,6 +45,7 @@ public class Player {
 
     static public boolean setFields(Player p, int field){
         if(p.turn) {
+            System.out.println("turn of " + p.getSymbol());
             if (checkField(field)) {
                 fields[field] = p.getSymbol();
                 p.turn = false;

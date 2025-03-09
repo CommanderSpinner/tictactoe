@@ -47,8 +47,12 @@ class GamePanel extends JPanel implements ActionListener {
                 Game g = new Game(p[playerNum], fields, i);
                 System.out.println("Field " + (i) + " was clicked!");
                 // Perform specific actions for each button
+
+                g.setField();
+                /*
                 switch (i) {
                     case 0:
+
                         break;
                     case 1:
                         break;
@@ -71,6 +75,8 @@ class GamePanel extends JPanel implements ActionListener {
                     default:
                         System.out.println("Error something went wrong");
                 }
+
+                 */
                 break;
             }
         }
