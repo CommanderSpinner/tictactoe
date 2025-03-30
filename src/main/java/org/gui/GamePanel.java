@@ -48,7 +48,11 @@ class GamePanel extends JPanel implements ActionListener {
                 System.out.println("Field " + (i) + " was clicked!");
                 // Perform specific actions for each button
 
-                g.setField();
+                if (g.setField()) { // Only switch turn if move is valid
+                    p[playerNum].setTurn(false);
+                    p[1 - playerNum].setTurn(true); // Switch turn to the other player
+                }
+
                 /*
                 switch (i) {
                     case 0:

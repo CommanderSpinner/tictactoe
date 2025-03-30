@@ -22,6 +22,8 @@ public class Player {
         return this.turn;
     }
 
+    public void setTurn(boolean turn){ this.turn = turn; }
+
     public void setScore(int score){
         this.score = score;
     }
