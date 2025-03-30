@@ -14,6 +14,10 @@ public class Game {
     }
 
     public boolean setField(){
-        return Player.setFields(p, fieldNumber);
+        boolean success = Player.setFields(p, fieldNumber);
+        if (success) {
+            fields[fieldNumber].setText(String.valueOf(p.getSymbol())); // Update UI button
+        }
+        return success;
     }
 }
