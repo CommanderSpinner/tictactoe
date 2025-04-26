@@ -13,6 +13,7 @@ import java.sql.SQLException;
 class GamePanel extends JPanel implements ActionListener {
     private JButton[] fields;
     private Player[] p;
+    private boolean win = false;
 
     public GamePanel(Player[] p, Conn c) throws SQLException {
         fields = new JButton[9];
@@ -35,6 +36,49 @@ class GamePanel extends JPanel implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         for (int i = 0; i < fields.length; i++) {
             if (e.getSource() == fields[i]) {
+
+                int playerNum = p[0].getTurn() ? 0 : 1;
+
+                Game g = new Game(p[playerNum], fields, i);
+
+                System.out.println("Field " + i + " was clicked!");
+
+                if (g.setField()) { // Only proceed if move is valid
+                    p[playerNum].setTurn(false);
+                    p[1 - playerNum].setTurn(true); // Switch turn to the other player
+
+                    win = g.checkWin(); // Check for win AFTER move is made
+
+                    if (win) {
+                        int response = JOptionPane.showConfirmDialog(
+                                null,
+                                "Player " + (playerNum + 1) + " wins!\nDo you want to play again?",
+                                "Game Over",
+                                JOptionPane.YES_NO_OPTION
+                        );
+
+                        if (response == JOptionPane.YES_OPTION) {
+                            //resetGame(); // You need to implement this
+                        } else {
+                            System.exit(0);
+                        }
+                    }
+                }
+
+                break;
+            }
+        }
+    }
+
+
+    /*
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        for (int i = 0; i < fields.length; i++) {
+            if (e.getSource() == fields[i]) {
+
+
+
                 int playerNum = -1;
 
                 // check which player should get checked
@@ -45,7 +89,8 @@ class GamePanel extends JPanel implements ActionListener {
                 }
 
                 Game g = new Game(p[playerNum], fields, i);
-                g.checkWin();
+                win = g.checkWin();
+
                 System.out.println("Field " + (i) + " was clicked!");
 
 
@@ -53,8 +98,23 @@ class GamePanel extends JPanel implements ActionListener {
                     p[playerNum].setTurn(false);
                     p[1 - playerNum].setTurn(true); // Switch turn to the other player
                 }
+
+                // replay game if won
+                if (win){
+                    int response = JOptionPane.showConfirmDialog(
+                            null,
+                            "Do you want to play again?",
+                            "Play Again",
+                            JOptionPane.YES_NO_OPTION
+                    );
+
+                    System.out.println("responce: " + response);
+                }
+
                 break;
             }
         }
     }
+    */
+
 }

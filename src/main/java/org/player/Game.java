@@ -14,9 +14,42 @@ public class Game {
         this.fields = fields;
     }
 
-    // gotta add to check if win
-    public void checkWin(){
-        if()
+    public boolean checkWin(){
+        String symbol = p.getSymbol() + "";
+        boolean win = false;
+
+        // Check rows
+        if (fields[0].getText().equals(symbol) && fields[1].getText().equals(symbol) && fields[2].getText().equals(symbol)) {
+            System.out.println("Player wins!");
+            win = true;
+        } else if (fields[3].getText().equals(symbol) && fields[4].getText().equals(symbol) && fields[5].getText().equals(symbol)) {
+            System.out.println("Player wins!");
+            win = true;
+        } else if (fields[6].getText().equals(symbol) && fields[7].getText().equals(symbol) && fields[8].getText().equals(symbol)) {
+            System.out.println("Player wins!");
+            win = true;
+        }
+        // Check columns
+        else if (fields[0].getText().equals(symbol) && fields[3].getText().equals(symbol) && fields[6].getText().equals(symbol)) {
+            System.out.println("Player wins!");
+            win = true;
+        } else if (fields[1].getText().equals(symbol) && fields[4].getText().equals(symbol) && fields[7].getText().equals(symbol)) {
+            System.out.println("Player wins!");
+            win = true;
+        } else if (fields[2].getText().equals(symbol) && fields[5].getText().equals(symbol) && fields[8].getText().equals(symbol)) {
+            System.out.println("Player wins!");
+            win = true;
+        }
+        // Check diagonals
+        else if (fields[0].getText().equals(symbol) && fields[4].getText().equals(symbol) && fields[8].getText().equals(symbol)) {
+            System.out.println("Player wins!");
+            win = true;
+        } else if (fields[2].getText().equals(symbol) && fields[4].getText().equals(symbol) && fields[6].getText().equals(symbol)) {
+            System.out.println("Player wins!");
+            win = true;
+        }
+
+        return win;
     }
 
     public boolean setField(){
