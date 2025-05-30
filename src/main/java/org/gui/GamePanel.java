@@ -58,15 +58,21 @@ class GamePanel extends JPanel implements ActionListener {
                         );
 
                         if (response == JOptionPane.YES_OPTION) {
-                            //resetGame(); // You need to implement this
+                            resetPanel();
                         } else {
                             System.exit(0);
                         }
                     }
+                    win = false;
                 }
-
                 break;
             }
+        }
+    }
+
+    private void resetPanel() {
+        for (int i = 0; i < fields.length; i++) {
+            fields[i].setText("");
         }
     }
 
