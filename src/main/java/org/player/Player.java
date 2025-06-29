@@ -18,6 +18,13 @@ public class Player {
         }
     }
 
+    public static void resetFields() {
+        for (int i = 0; i < fields.length; i++) {
+            fields[i] = ' ';
+        }
+    }
+
+
     public boolean getTurn(){
         return this.turn;
     }

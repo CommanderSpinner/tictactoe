@@ -74,7 +74,16 @@ class GamePanel extends JPanel implements ActionListener {
         for (int i = 0; i < fields.length; i++) {
             fields[i].setText("");
         }
+
+        // Reset internal game state
+        Player.resetFields();
+
+
+        // Reset turns
+        p[0].setTurn(true);
+        p[1].setTurn(false);
     }
+
 
 
     /*
