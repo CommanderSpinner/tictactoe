@@ -50,6 +50,9 @@ class GamePanel extends JPanel implements ActionListener {
                     win = g.checkWin(); // Check for win AFTER move is made
 
                     if (win) {
+
+                        p[playerNum].setScore(p[playerNum].getScore() + 1); // increment score of winning player
+
                         int response = JOptionPane.showConfirmDialog(
                                 null,
                                 "Player " + (playerNum + 1) + " wins!\nDo you want to play again?",

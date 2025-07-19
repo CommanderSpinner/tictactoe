@@ -49,6 +49,13 @@ public class Game {
             win = true;
         }
 
+        /*
+        if (win) {
+            p.setScore(p.getScore() + 1);
+        }
+        */
+
+
         return win;
     }
 
