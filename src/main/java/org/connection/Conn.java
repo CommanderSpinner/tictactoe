@@ -32,11 +32,14 @@ public class Conn {
     }
 
     public void syncDB(Player p) throws SQLException {
+        System.out.println("Synchronising DB");
+        System.out.println("Saving " + p.getSymbol() + ": " + p.getScore()); // shows score that gets saved
         Statement s = c.createStatement();
         s.executeUpdate("UPDATE player SET score = " + p.getScore() + " WHERE symbol = '" + p.getSymbol() + "'");
     }
 
     public void readDB(Player p) throws SQLException {
+        System.out.println("Reading DB");
         Statement s = c.createStatement();
         ResultSet rs = s.executeQuery("SELECT * FROM player WHERE symbol = '" + p.getSymbol() + "'");
 
