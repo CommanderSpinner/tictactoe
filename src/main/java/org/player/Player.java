@@ -4,6 +4,8 @@ public class Player {
     char symbol;
     static char fields[];
     boolean turn = false;
+    int score;
+
     public Player(char symbol, boolean turn){
         this.symbol = symbol;
         this.turn = turn;
@@ -16,8 +18,34 @@ public class Player {
         }
     }
 
+    public static void resetFields() {
+        for (int i = 0; i < fields.length; i++) {
+            fields[i] = ' ';
+        }
+    }
+
+
+    public boolean getTurn(){
+        return this.turn;
+    }
+
+    public void setTurn(boolean turn){ this.turn = turn; }
+
+    public void setScore(int score){
+        this.score = score;
+    }
+
+    public int getScore(){
+        return score;
+    }
+
     public char getSymbol(){
         return symbol;
+    }
+
+    public boolean checkWinner(){
+
+        return false;
     }
 
     static private boolean checkField(int field){
@@ -26,6 +54,7 @@ public class Player {
 
     static public boolean setFields(Player p, int field){
         if(p.turn) {
+            System.out.println("turn of " + p.getSymbol());
             if (checkField(field)) {
                 fields[field] = p.getSymbol();
                 p.turn = false;
