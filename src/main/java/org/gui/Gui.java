@@ -1,5 +1,9 @@
 package org.gui;
 
+import com.formdev.flatlaf.FlatLightLaf;   // For light theme
+import com.formdev.flatlaf.FlatDarkLaf;    // For dark theme
+
+
 import org.connection.Conn;
 import org.player.Player;
 
@@ -19,7 +23,13 @@ class Gui extends JFrame {
     private Conn c;
 
     public Gui() throws SQLException {
-        c = new Conn();
+	try {
+        UIManager.setLookAndFeel(new FlatDarkLaf());
+    } catch (Exception ex) {
+        ex.printStackTrace();
+    }
+	
+	c = new Conn();
 
         players = new Player[2];
         players[0] = new Player('x', true);
